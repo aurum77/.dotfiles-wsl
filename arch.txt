@@ -1,0 +1,39 @@
+git -> to clone paru
+stow -> dotfile deployment
+eza -> cool and fast ls replacement
+bash-completion -> self explanatory
+man-db -> manual pages
+man-pages -> > manual pages
+htop -> system info
+nvtop -> gpu info
+nodejs-lts-iron -> web dev
+npm -> web dev
+neovim -> development
+python-pip -> needed for nvim
+ripgrep -> needed for nvim
+unzip -> needed for nvim and unzip stuff
+wget -> needed for nvim
+tidy -> needed for nvim
+tar -> needed for nvim
+gzip -> needed for nvim
+python-pip -> nice to have
+fzf -> cool fuzzy finder
+neofetch -> pretty system info
+python-wheel -> needed for pip packages 
+tokei -> count lines of code blazingly fast 
+docker -> containers
+docker-compose -> containers
+docker-buildx -> container builds for rider
+fuse2 -> appimage support
+p7zip -> extract 7zip
+unrar -> extract rar
+gtk-engine-murrine -> theme
+fakeroot -> aur
+make -> aur
+gcc -> treesitter
+which -> find path of a program
+zip -> zip stuff
+go -> golang
+rclone -> mount google drive
+oha -> stress test tui
+bind -> dns tools

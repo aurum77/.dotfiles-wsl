@@ -33,8 +33,8 @@ export NPM_PACKAGES=$HOME/.npm_packages
 export FZF_DEFAULT_OPTS="
 --height 100% \
 --reverse \
---color=bg+:#3c3836,bg:#282828,spinner:#fabd2f,hl:#fabd2f \
---color=fg:#ebdbb2,header:#665c54,info:#83a598,pointer:#83a598 \
+--color=bg+:#3c3836,bg:-1,spinner:#fe8019,hl:#fe8019 \
+--color=fg:#ebdbb2,header:#665c54,info:#fe8019,pointer:#fe8019 \
 --color=marker:#fe8019,fg+:#ebdbb2,prompt:#bdae93,hl+:#fabd2f"
 
 export PATH="$PATH:$NPM_PACKAGES/bin"

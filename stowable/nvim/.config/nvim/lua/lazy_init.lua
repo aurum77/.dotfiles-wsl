@@ -22,17 +22,6 @@ require("lazy").setup({
 		lazy = false,
 	},
 	{
-		"akinsho/flutter-tools.nvim",
-		config = function()
-			require("plugins.flutter-tools")
-		end,
-		ft = "dart",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"stevearc/dressing.nvim",
-		},
-	},
-	{
 		"nvim-telescope/telescope.nvim",
 		config = function()
 			require("plugins.telescope")
@@ -41,7 +30,7 @@ require("lazy").setup({
 	},
 	{
 		"nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
+		build = ":TSUpdate",
 		config = function()
 			require("plugins.nvim-treesitter")
 		end,
@@ -267,14 +256,6 @@ require("lazy").setup({
 			"nvim-telescope/telescope.nvim",
 		},
 		config = true,
-	},
-	{
-		"iamcco/markdown-preview.nvim",
-		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-		ft = { "markdown" },
-		build = function()
-			vim.fn["mkdp#util#install"]()
-		end,
 	},
 	{
 		"luckasRanarison/tailwind-tools.nvim",

@@ -103,3 +103,11 @@ vim.api.nvim_create_autocmd({ "VimEnter" }, {
 	end,
 	group = open_nvim_tree_group,
 })
+
+local yank_group = vim.api.nvim_create_augroup("YankGroup", { clear = true })
+vim.api.nvim_create_autocmd("TextYankPost", {
+	group = vim.api.nvim_create_augroup("Yank", { clear = true }),
+	callback = function()
+		vim.fn.system("clip.exe", vim.fn.getreg('"'))
+	end,
+})

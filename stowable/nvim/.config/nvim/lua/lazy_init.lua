@@ -206,39 +206,11 @@ require("lazy").setup({
 		ft = "lua",
 	},
 	{
-		"rcarriga/nvim-notify",
-		config = function()
-			require("plugins.notify")
-		end,
-		event = "BufEnter",
-	},
-	{
 		"Wansmer/symbol-usage.nvim",
 		event = "BufReadPre", -- need run before LspAttach if you use nvim 0.9. On 0.10 use 'LspAttach'
 		config = function()
 			require("plugins.symbol_usage")
 		end,
-	},
-	{
-		"rcarriga/nvim-dap-ui",
-		config = function()
-			require("dapui").setup()
-		end,
-		dependencies = {
-			{
-				"mfussenegger/nvim-dap",
-				config = function()
-					require("plugins.dap")
-				end,
-			},
-			"nvim-neotest/nvim-nio",
-			{
-				"theHamsta/nvim-dap-virtual-text",
-				config = function()
-					require("nvim-dap-virtual-text").setup()
-				end,
-			},
-		},
 	},
 	{
 		"lukas-reineke/indent-blankline.nvim",

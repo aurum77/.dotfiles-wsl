@@ -38,29 +38,11 @@ lspconfig.jedi_language_server.setup({
 	handlers = utils.handlers,
 })
 
--- lspconfig.gdscript.setup({
--- 	capabilities = utils.capabilities,
--- 	on_attach = utils.on_attach,
--- 	handlers = utils.handlers
--- })
-
 lspconfig.html.setup({
 	capabilities = utils.capabilities,
 	on_attach = utils.on_attach,
 	handlers = utils.handlers,
 })
-
--- lspconfig.prismals.setup({
--- 	capabilities = utils.capabilities,
--- 	on_attach = utils.on_attach,
--- 	handlers = utils.handlers,
--- })
-
--- lspconfig.dartls.setup({
--- 	capabilities = utils.capabilities,
--- 	on_attach = utils.on_attach,
--- 	handlers = utils.handlers
--- })
 
 lspconfig.clangd.setup({
 	capabilities = utils.capabilities,

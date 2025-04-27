@@ -37,3 +37,4 @@ go -> golang
 rclone -> mount google drive
 oha -> stress test tui
 bind -> dns tools
+trash-cli -> trash management

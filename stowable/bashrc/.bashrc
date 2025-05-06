@@ -16,8 +16,6 @@ alias tree='eza --tree'
 alias v='nvim '
 alias vc='nvim $HOME/.config/nvim '
 alias c='clear'
-alias z='zathura '
-alias gdrive='rclone mount gdrive: $HOME/docs/gdrive/ '
 
 # git specific aliases
 alias ga='git add '
@@ -30,11 +28,6 @@ alias gl='git log '
 alias glo='git log --oneline '
 alias gst='git status '
 alias gp='git push '
-
-# Set governor
-alias powersave="sudo cpupower frequency-set --governor powersave 2 > /dev/null"
-alias schedutil="sudo cpupower frequency-set --governor schedutil 2 > /dev/null"
-alias performance="sudo cpupower frequency-set --governor performance 2 > /dev/null"
 
 # Enables directory change without using cd
 shopt -s autocd

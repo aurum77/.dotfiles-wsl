@@ -1,6 +1,6 @@
 git -> to clone paru
 stow -> dotfile deployment
-eza -> cool and fast ls replacement
+eza -> ls replacement
 bash-completion -> self explanatory
 man-db -> manual pages
 man-pages -> > manual pages
@@ -24,17 +24,12 @@ tokei -> count lines of code blazingly fast
 docker -> containers
 docker-compose -> containers
 docker-buildx -> container builds for rider
-fuse2 -> appimage support
 p7zip -> extract 7zip
 unrar -> extract rar
 gtk-engine-murrine -> theme
-fakeroot -> aur
-make -> aur
-gcc -> treesitter
 which -> find path of a program
 zip -> zip stuff
 go -> golang
-rclone -> mount google drive
-oha -> stress test tui
 bind -> dns tools
 trash-cli -> trash management
+base-devel -> required stuff

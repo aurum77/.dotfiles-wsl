@@ -1,20 +1,37 @@
-local status_ok, treesitter_configs = pcall(require, "nvim-treesitter.configs")
-
-if not status_ok then
-	return
-end
-
-treesitter_configs.setup({
-	highlight = {
-		enable = true,
-		disable = {},
+return {
+	"nvim-treesitter/nvim-treesitter",
+	build = ":TSUpdate",
+	cmd = {
+		"TSInstall",
+		"TSUninstall",
+		"TSInstallInfo",
+		"TSUpdate",
+		"TSBufEnable",
+		"TSBufDisable",
+		"TSEnable",
+		"TSDisable",
+		"TSModuleInfo",
+		"TSToggle",
+		"TSBufToggle",
 	},
-	autotag = {
-		enable = true,
+	opts = {
+		highlight = {
+			enable = true,
+		},
+		autotag = {
+			enable = true,
+		},
+		auto_install = true,
+		sync_install = false,
 	},
-	auto_install = true,
-	sync_install = false,
-	ensure_installed = {},
-	ignore_install = {},
-	modules = {},
-})
+	dependencies = {
+		"windwp/nvim-ts-autotag",
+		{
+			"nvim-treesitter/nvim-treesitter-context",
+			opts = {
+				enable = true,
+			},
+		},
+	},
+	event = "BufEnter",
+}

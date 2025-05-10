@@ -1,9 +1,3 @@
-local status_ok, nvim_tree = pcall(require, "nvim-tree")
-
-if not status_ok then
-	return
-end
-
 local function on_attach(bufnr)
 	local api = require("nvim-tree.api")
 
@@ -64,12 +58,6 @@ local function on_attach(bufnr)
 	vim.keymap.set("n", "<2-LeftMouse>", api.node.open.edit, opts("Open"))
 	vim.keymap.set("n", "<2-RightMouse>", api.tree.change_root_to_node, opts("CD"))
 
-	-- Removed mappings
-	vim.keymap.set("n", "f", "", { buffer = bufnr })
-	vim.keymap.del("n", "f", { buffer = bufnr })
-	vim.keymap.set("n", "<C-t>", "", { buffer = bufnr })
-	vim.keymap.del("n", "<C-t>", { buffer = bufnr })
-
 	vim.keymap.set("n", "l", api.node.open.edit, opts("Open"))
 	vim.keymap.set("n", "<CR>", api.node.open.edit, opts("Open"))
 	vim.keymap.set("n", "o", api.node.open.edit, opts("Open"))
@@ -77,103 +65,121 @@ local function on_attach(bufnr)
 	vim.keymap.set("n", "v", api.node.open.vertical, opts("Open: Vertical Split"))
 	vim.keymap.set("n", "d", api.fs.trash, opts("Trash"))
 	vim.keymap.set("n", "D", api.fs.remove, opts("Delete"))
+
+	-- Removed some binds
+	vim.keymap.set("n", "f", "", { buffer = bufnr })
+	vim.keymap.del("n", "f", { buffer = bufnr })
+	vim.keymap.set("n", "<C-t>", "", { buffer = bufnr })
+	vim.keymap.del("n", "<C-t>", { buffer = bufnr })
 end
 
-nvim_tree.setup({
-	on_attach = on_attach,
-	disable_netrw = true,
-	hijack_netrw = true,
-	sync_root_with_cwd = true,
-	auto_reload_on_write = true,
-	reload_on_bufenter = true,
-	hijack_unnamed_buffer_when_opening = true,
-	filters = {
-		dotfiles = true,
+return {
+	"nvim-tree/nvim-tree.lua",
+	init = function()
+		local opts = require("core.utils").opts
+		vim.keymap.set("n", "<Leader>e", "<Cmd>NvimTreeToggle<CR>", opts)
+	end,
+	cmd = {
+		"NvimTreeOpen",
+		"NvimTreeToggle",
+		"NvimTreeFocus",
+		"NvimTreeFindFile",
+		"NvimTreeFindFileToggle",
 	},
-	hijack_directories = {
-		enable = false,
-	},
-	git = {
-		ignore = false,
-	},
-	renderer = {
-		root_folder_label = ":t",
-		-- root_folder_label = false,
-		symlink_destination = true,
-		icons = {
-			webdev_colors = true,
-			git_placement = "after",
-			symlink_arrow = "  ",
-			show = {
-				folder = true,
-				file = true,
-				git = true,
-			},
-			padding = " ",
-			glyphs = {
-				git = {
-					unstaged = "",
-					staged = "",
-					unmerged = "",
-					renamed = "",
-					untracked = "",
-					deleted = "",
-					ignored = "",
-				},
-				folder = {
-					default = "",
-					open = "",
-					empty = "",
-					empty_open = "",
-				},
-			},
-		},
-		indent_markers = {
-			enable = true,
-			icons = {
-				corner = "└",
-				edge = "│",
-				none = " ",
-			},
-		},
-	},
-	view = {
-		adaptive_size = true,
-		-- width = 40,
-		-- height = 30,
-		side = "left",
-		number = true,
-		relativenumber = true,
-		preserve_window_proportions = true,
-		float = {
-			open_win_config = {
-				border = "single",
-			},
-		},
-	},
-	diagnostics = {
-		icons = {
-			error = "",
-			warning = "",
-			hint = "",
-			info = "",
-		},
 
-		enable = true,
-		show_on_dirs = true,
-	},
-	actions = {
-		open_file = {
-			window_picker = {
+	opts = {
+		on_attach = on_attach,
+		disable_netrw = true,
+		hijack_netrw = true,
+		sync_root_with_cwd = true,
+		auto_reload_on_write = true,
+		reload_on_bufenter = true,
+		hijack_unnamed_buffer_when_opening = true,
+		filters = {
+			dotfiles = true,
+		},
+		hijack_directories = {
+			enable = false,
+		},
+		git = {
+			ignore = false,
+		},
+		renderer = {
+			root_folder_label = ":t",
+			-- root_folder_label = false,
+			symlink_destination = true,
+			icons = {
+				webdev_colors = true,
+				git_placement = "after",
+				symlink_arrow = "  ",
+				show = {
+					folder = true,
+					file = true,
+					git = true,
+				},
+				padding = " ",
+				glyphs = {
+					git = {
+						unstaged = "",
+						staged = "",
+						unmerged = "",
+						renamed = "",
+						untracked = "",
+						deleted = "",
+						ignored = "",
+					},
+					folder = {
+						default = "",
+						open = "",
+						empty = "",
+						empty_open = "",
+					},
+				},
+			},
+			indent_markers = {
 				enable = true,
-				chars = "JKLASDF",
+				icons = {
+					corner = "└",
+					edge = "│",
+					none = " ",
+				},
 			},
 		},
+		view = {
+			adaptive_size = true,
+			-- width = 40,
+			-- height = 30,
+			side = "left",
+			number = true,
+			relativenumber = true,
+			preserve_window_proportions = true,
+			float = {
+				open_win_config = {
+					border = "single",
+				},
+			},
+		},
+		diagnostics = {
+			icons = {
+				error = "",
+				warning = "",
+				hint = "",
+				info = "",
+			},
+
+			enable = true,
+			show_on_dirs = true,
+		},
+		actions = {
+			open_file = {
+				window_picker = {
+					enable = true,
+					chars = "JKLASDF",
+				},
+			},
+		},
+		trash = {
+			require_confirm = false,
+		},
 	},
-	system_open = {
-		cmd = "exo-open",
-	},
-	trash = {
-		require_confirm = false,
-	},
-})
+}

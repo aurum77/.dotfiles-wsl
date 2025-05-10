@@ -63,13 +63,13 @@ vim.api.nvim_create_autocmd("CursorHold", {
 	group = autoread_group,
 })
 
-local sign_column_toggle_group = vim.api.nvim_create_augroup("SignColumnToggleGroup", { clear = true })
-vim.api.nvim_create_autocmd("TermEnter", {
-	callback = function()
-		vim.opt.signcolumn = "no"
-	end,
-	group = sign_column_toggle_group,
-})
+-- local sign_column_toggle_group = vim.api.nvim_create_augroup("SignColumnToggleGroup", { clear = true })
+-- vim.api.nvim_create_autocmd("TermEnter", {
+-- 	callback = function()
+-- 		vim.opt.signcolumn = "no"
+-- 	end,
+-- 	group = sign_column_toggle_group,
+-- })
 -- autocmd BufNewFile,BufRead tsconfig.json setlocal filetype=jsonc
 local json_filetype_change_group = vim.api.nvim_create_augroup("JsonFiletypeChangeGroup", { clear = true })
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {

@@ -1,9 +1,3 @@
-local status_ok, symbol_usage = pcall(require, "symbol-usage")
-
-if not status_ok then
-	return
-end
-
 local function text_format(symbol)
 	local fragments = {}
 
@@ -20,9 +14,13 @@ local function text_format(symbol)
 	return table.concat(fragments, ", ")
 end
 
-symbol_usage.setup({
-	text_format = text_format,
-	definition = { enabled = true },
-	implementation = { enabled = true },
-	disable = { lsp = { "dartls", "tsserver", "tailwindcss" } },
-})
+return {
+	"Wansmer/symbol-usage.nvim",
+	event = "LspAttach",
+	opts = {
+		text_format = text_format,
+		definition = { enabled = true },
+		implementation = { enabled = true },
+		disable = { lsp = { "dartls", "tsserver", "tailwindcss" } },
+	},
+}

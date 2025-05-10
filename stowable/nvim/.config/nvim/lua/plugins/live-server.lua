@@ -1,11 +1,18 @@
-local status_ok, live_server = pcall(require, "live_server")
-if not status_ok then
-	return
-end
-
-live_server.setup({
-	port = 7777,
-	browser_command = "firefox",
-	quiet = false,
-	no_css_inject = true,
-})
+return {
+	"aurum77/live-server.nvim",
+	opts = {
+		port = 7777,
+		browser_command = "firefox",
+		quiet = false,
+		no_css_inject = true,
+	},
+	cmd = {
+		"LiveServer",
+		"LiveServerStart",
+		"LiveServerStop",
+		"LiveServerInstall",
+	},
+	build = function()
+		require("live_server.util").install()
+	end,
+}

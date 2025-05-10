@@ -1,61 +1,53 @@
-local status_ok, gitsigns = pcall(require, "gitsigns")
+return {
+	"lewis6991/gitsigns.nvim",
+	opts = {
+		preview_config = {
+			border = "single",
+		},
+		on_attach = function(bufnr)
+			local gs = package.loaded.gitsigns
+			local opts = require("core.utils").opts
 
-if not status_ok then
-	return
-end
+			-- Navigation
+			vim.keymap.set("n", "]c", function()
+				if vim.wo.diff then
+					return "]c"
+				end
+				vim.schedule(function()
+					gs.next_hunk()
+				end)
+				return "<Ignore>"
+			end, { expr = true })
 
-gitsigns.setup({
-	preview_config = {
-		border = "single",
+			vim.keymap.set("n", "[c", function()
+				if vim.wo.diff then
+					return "[c"
+				end
+				vim.schedule(function()
+					gs.prev_hunk()
+				end)
+				return "<Ignore>"
+			end, { expr = true })
+
+			vim.keymap.set("n", "J", "<Cmd>Gitsigns blame_line<CR>", opts)
+			vim.keymap.set({ "n", "v" }, "<leader>hs", ":Gitsigns stage_hunk<CR>", opts)
+			vim.keymap.set({ "n", "v" }, "<leader>hr", ":Gitsigns reset_hunk<CR>", opts)
+			vim.keymap.set("n", "<leader>hS", gs.stage_buffer, opts)
+			vim.keymap.set("n", "<leader>hu", gs.undo_stage_hunk, opts)
+			vim.keymap.set("n", "<leader>hR", gs.reset_buffer, opts)
+			vim.keymap.set("n", "<leader>hp", gs.preview_hunk, opts)
+			vim.keymap.set("n", "<leader>hb", function()
+				gs.blame_line({ full = true })
+			end, opts)
+			vim.keymap.set("n", "<leader>tb", gs.toggle_current_line_blame, opts)
+			vim.keymap.set("n", "<leader>hd", gs.diffthis, opts)
+			vim.keymap.set("n", "<leader>hD", function()
+				gs.diffthis("~")
+			end, opts)
+			vim.keymap.set("n", "<leader>td", gs.toggle_deleted, opts)
+
+			-- Text object
+			vim.keymap.set({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", opts)
+		end,
 	},
-	on_attach = function(bufnr)
-		local gs = package.loaded.gitsigns
-		local keymap_opts = require("core.utils").keymap_opts
-		local function map(mode, l, r, opts)
-			opts = opts or {}
-			opts.buffer = bufnr
-			vim.keymap.set(mode, l, r, opts)
-		end
-
-		-- Navigation
-		map("n", "]c", function()
-			if vim.wo.diff then
-				return "]c"
-			end
-			vim.schedule(function()
-				gs.next_hunk()
-			end)
-			return "<Ignore>"
-		end, { expr = true })
-
-		map("n", "[c", function()
-			if vim.wo.diff then
-				return "[c"
-			end
-			vim.schedule(function()
-				gs.prev_hunk()
-			end)
-			return "<Ignore>"
-		end, { expr = true })
-
-		-- Actions
-		map({ "n", "v" }, "<leader>hs", ":Gitsigns stage_hunk<CR>", keymap_opts)
-		map({ "n", "v" }, "<leader>hr", ":Gitsigns reset_hunk<CR>", keymap_opts)
-		map("n", "<leader>hS", gs.stage_buffer, keymap_opts)
-		map("n", "<leader>hu", gs.undo_stage_hunk, keymap_opts)
-		map("n", "<leader>hR", gs.reset_buffer, keymap_opts)
-		map("n", "<leader>hp", gs.preview_hunk, keymap_opts)
-		map("n", "<leader>hb", function()
-			gs.blame_line({ full = true })
-		end, keymap_opts)
-		map("n", "<leader>tb", gs.toggle_current_line_blame, keymap_opts)
-		map("n", "<leader>hd", gs.diffthis, keymap_opts)
-		map("n", "<leader>hD", function()
-			gs.diffthis("~")
-		end, keymap_opts)
-		map("n", "<leader>td", gs.toggle_deleted, keymap_opts)
-
-		-- Text object
-		map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", keymap_opts)
-	end,
-})
+}

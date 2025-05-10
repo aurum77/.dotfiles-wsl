@@ -1,6 +1,9 @@
 return {
 	{
 		"mason-org/mason-lspconfig.nvim",
+		init = function()
+			vim.keymap.set("n", "<Leader>lm", "<Cmd>Mason<CR>", opts)
+		end,
 		opts = {
 			ensure_installed = {
 				"jsonls",

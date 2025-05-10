@@ -1,6 +1,5 @@
 local utils = require("core.utils")
 local opts = utils.opts
-local ls = require("luasnip")
 
 -- Set space as leader
 vim.keymap.set("", "<Space>", "<Nop>", opts)
@@ -30,13 +29,10 @@ vim.keymap.set("i", "<F1>", "<NOP>", opts)
 vim.keymap.set("v", "<F1>", "<NOP>", opts)
 vim.keymap.set("x", "<F1>", "<NOP>", opts)
 
-vim.keymap.set("n", "<Leader>lm", "<Cmd>Mason<CR>", opts)
-
 -- Insert mode
 -- Escape insert mode
 vim.keymap.set("i", "fd", "<ESC>", opts)
 vim.keymap.set("i", "<C-c>", "<ESC>", opts)
-
 
 -- WSL Yank
 vim.keymap.set({ "n", "v" }, "<Leader>y", '"+y', opts)

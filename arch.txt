@@ -34,3 +34,4 @@ bind -> dns tools
 trash-cli -> trash management
 base-devel -> required stuff
 openssh -> ssh
+wsl2-ssh-agent -> ssh but from windows

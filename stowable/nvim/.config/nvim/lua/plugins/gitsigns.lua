@@ -6,7 +6,7 @@ return {
 		},
 		on_attach = function(bufnr)
 			local gs = package.loaded.gitsigns
-			local opts = require("core.utils").opts
+			local opts = require("plugins.lsp.opts").opts
 
 			-- Navigation
 			vim.keymap.set("n", "]c", function()

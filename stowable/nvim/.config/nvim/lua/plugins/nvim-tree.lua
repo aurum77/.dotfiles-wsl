@@ -76,7 +76,7 @@ end
 return {
 	"nvim-tree/nvim-tree.lua",
 	init = function()
-		local opts = require("core.utils").opts
+		local opts = require("plugins.lsp.opts").opts
 		vim.keymap.set("n", "<Leader>e", "<Cmd>NvimTreeToggle<CR>", opts)
 	end,
 	cmd = {

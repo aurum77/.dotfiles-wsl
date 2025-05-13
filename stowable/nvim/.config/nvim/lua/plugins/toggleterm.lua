@@ -7,7 +7,7 @@ return {
 		"ToggleTermSendVisualSelection",
 	},
 	init = function()
-		local opts = require("core.utils").opts
+		local opts = require("plugins.lsp.opts").opts
 		vim.keymap.set({ "n", "t", "i" }, "<C-t>", "<Cmd>ToggleTerm<CR>", opts)
 		vim.keymap.set("t", "<ESC>", [[<C-\><C-n>]], opts)
 		vim.keymap.set("t", "fd", [[<C-\><C-n>]], opts)

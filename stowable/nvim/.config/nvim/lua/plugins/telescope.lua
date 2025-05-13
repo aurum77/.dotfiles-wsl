@@ -2,7 +2,7 @@ return {
 	"nvim-telescope/telescope.nvim",
   lazy = false,
 	init = function()
-		local opts = require("core.utils").opts
+		local opts = require("plugins.lsp.opts").opts
 		vim.keymap.set("n", "<Leader>ff", "<Cmd>Telescope find_files<CR>", opts)
 		vim.keymap.set("n", "<Leader>fg", "<Cmd>Telescope live_grep<CR>", opts)
 		vim.keymap.set("n", "<Leader>f.", "<Cmd>Telescope live_grep hidden=true<CR>", opts)

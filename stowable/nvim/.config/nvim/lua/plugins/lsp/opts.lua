@@ -1,8 +1,7 @@
 local M = {}
 
 function M.on_attach(client, bufnr)
-  print("ran on attach")
-	local opts = { noremap = true, silent = true, buffer = bufnr }
+	local opts = { silent = true, buffer = bufnr }
 	vim.keymap.set("n", "gd", "<Cmd>Telescope lsp_definitions<CR>", opts)
 	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 	vim.keymap.set("n", "K", function()

@@ -1,7 +1,7 @@
 return {
 	"mhartington/formatter.nvim",
 	init = function()
-		local opts = require("core.utils").opts
+		local opts = require("plugins.lsp.opts").opts
 		vim.keymap.set("n", "<C-f>", "<Cmd>Format<CR>", opts)
 	end,
 	cmd = "Format",

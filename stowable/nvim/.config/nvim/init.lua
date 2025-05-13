@@ -1,4 +1,4 @@
-vim.loader.enable()
+-- vim.loader.enable()
 
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -35,6 +35,3 @@ require("core.options")
 require("core.keymaps")
 require("core.autocommands")
 require("core.globals")
-
-
-

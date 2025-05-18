@@ -1,0 +1,9 @@
+Windows Registry Editor Version 5.00
+
+; ───────────────────────────────────────────────
+;  Disable Windows 11 web‑search in Start menu
+;  Applies to all user accounts (HKLM)
+; ───────────────────────────────────────────────
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer]
+"DisableSearchBoxSuggestions"=dword:00000001

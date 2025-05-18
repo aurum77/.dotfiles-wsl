@@ -36,4 +36,4 @@ shopt -s autocd
 source /usr/share/fzf/key-bindings.bash
 
 # Use ssh service from Windows
-eval $(/usr/bin/wsl2-ssh-agent)
+eval $(wsl2-ssh-agent)

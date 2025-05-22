@@ -18,7 +18,7 @@ tar -> needed for nvim
 gzip -> needed for nvim
 python-pip -> nice to have
 fzf -> cool fuzzy finder
-neofetch -> pretty system info
+fastfetch -> pretty system info
 python-wheel -> needed for pip packages 
 tokei -> count lines of code blazingly fast 
 docker -> containers

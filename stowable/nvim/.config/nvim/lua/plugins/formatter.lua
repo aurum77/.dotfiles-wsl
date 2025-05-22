@@ -16,6 +16,7 @@ return {
 				javascript = { require("formatter.filetypes.javascript").prettier },
 				javascriptreact = { require("formatter.filetypes.javascriptreact").prettier },
 				jsonc = { require("formatter.filetypes.json").prettier },
+				json = { require("formatter.filetypes.json").prettier },
 				lua = { require("formatter.filetypes.lua").stylua },
 				markdown = { require("formatter.filetypes.markdown").prettier },
 				python = { require("formatter.filetypes.python").black },

@@ -13,7 +13,7 @@ return {
 				GitHeader = "GruvboxFg0",
 			},
 			scene = {
-				diff_preference = "split", -- unified or split
+				diff_preference = "unified", -- unified or split
 				keymaps = {
 					quit = "q",
 				},

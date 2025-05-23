@@ -9,7 +9,7 @@ return {
 				"jsonls",
 				"bashls",
 				"tailwindcss",
-				"jedi_language_server",
+				"pylsp",
 				"html",
 				"clangd",
 				"emmet_ls",

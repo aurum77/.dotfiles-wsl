@@ -1,3 +1,5 @@
+local lsp = require("plugins.lsp.utils").get_lsp()
+
 return {
 	{
 		"mason-org/mason-lspconfig.nvim",
@@ -5,21 +7,7 @@ return {
 			vim.keymap.set("n", "<Leader>lm", "<Cmd>Mason<CR>", opts)
 		end,
 		opts = {
-			ensure_installed = {
-				"jsonls",
-				"bashls",
-				"tailwindcss",
-				"pylsp",
-				"html",
-				"clangd",
-				"emmet_ls",
-				"cssls",
-				"ts_ls",
-				"lua_ls",
-				"gopls",
-				"dockerls",
-				"docker_compose_language_service",
-			},
+			ensure_installed = lsp
 		},
 		dependencies = {
 			{

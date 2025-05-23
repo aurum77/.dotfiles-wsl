@@ -20,6 +20,8 @@ return {
 		vim.keymap.set("n", "gr", "<Cmd>Telescope lsp_references<CR>", opts)
 	end,
 	config = function()
+		local lsp = require("plugins.lsp.utils").get_lsp()
+
 		vim.diagnostic.config({
 			signs = {
 				text = {
@@ -43,25 +45,10 @@ return {
 			},
 		})
 
-		function configure(server_name)
-			local on_attach = require("plugins.lsp.opts").on_attach
-			local capabilities = require("plugins.lsp.opts").capabilities
+		vim.lsp.enable(lsp)
 
-			local opts = {
-				on_attach = on_attach,
-				capabilities = capabilities,
-			}
-
-			local require_ok, server = pcall(require, "plugins.lsp.settings." .. server_name)
-			if require_ok then
-				opts = vim.tbl_deep_extend("force", opts, server)
-			end
-			vim.lsp.config(server_name, opts)
-			vim.lsp.enable(server_name)
-		end
-
-		for server in pairs(vim.lsp._enabled_configs) do
-			configure(server)
-		end
+		vim.lsp.config("*", {
+			capabilities = lsp.capabilities,
+		})
 	end,
 }

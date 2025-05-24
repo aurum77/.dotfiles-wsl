@@ -155,7 +155,7 @@ return {
 			preserve_window_proportions = true,
 			float = {
 				open_win_config = {
-					border = "single",
+					border = "rounded",
 				},
 			},
 		},

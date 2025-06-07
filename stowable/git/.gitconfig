@@ -2,6 +2,6 @@
 	email = 58880138+aurum77@users.noreply.github.com
 	name = aurum77
 [init]
-	defaultBranch = master
+	defaultBranch = main
 [color]
 	ui = auto

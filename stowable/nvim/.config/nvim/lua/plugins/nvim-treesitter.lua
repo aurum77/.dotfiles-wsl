@@ -14,18 +14,21 @@ return {
 		"TSToggle",
 		"TSBufToggle",
 	},
-	opts = {
-		highlight = {
-			enable = true,
-		},
-		autotag = {
-			enable = true,
-		},
-		auto_install = true,
-		sync_install = false,
-	},
+	config = function()
+		local configs = require("nvim-treesitter.configs")
+		---@diagnostic disable-next-line: missing-fields
+		configs.setup({
+			highlight = {
+				enable = true,
+			},
+			autotag = {
+				enable = true,
+			},
+			auto_install = true,
+			sync_install = false,
+		})
+	end,
 	dependencies = {
-		"windwp/nvim-ts-autotag",
 		{
 			"nvim-treesitter/nvim-treesitter-context",
 			opts = {

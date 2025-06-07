@@ -110,7 +110,7 @@ return {
 				},
 			},
 			sections = {
-				lualine_a = { filetype, filename },
+				lualine_a = { filetype, filename, filesize },
 				lualine_b = { branch },
 				lualine_c = { diagnostics },
 				lualine_x = { diff, fileformat },

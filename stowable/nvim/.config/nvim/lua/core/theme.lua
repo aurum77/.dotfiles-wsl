@@ -19,6 +19,7 @@ vim.api.nvim_set_hl(0, "SignColumn", { fg = gruvbox.dark0 })
 vim.api.nvim_set_hl(0, "FloatBorder", { bg = "NONE", fg = gruvbox.light1 })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE", fg = gruvbox.light1 })
 vim.api.nvim_set_hl(0, "Directory", { bg = "NONE", fg = gruvbox.bright_blue, bold = true })
+vim.api.nvim_set_hl(0, "CursorLineSign", { bg = gruvbox.dark1 })
 -- Internal
 -- Gitsigns
 vim.api.nvim_set_hl(0, "GitSignsCurrentLineBlame", { fg = gruvbox.bright_blue })
@@ -53,7 +54,4 @@ vim.api.nvim_set_hl(0, "TroubleSignOther", { bg = "NONE", fg = gruvbox.bright_bl
 -- nvim.tree
 vim.api.nvim_set_hl(0, "NvimTreeWindowPicker", { bg = gruvbox.neutral_blue, fg = gruvbox.dark0 })
 -- nvim.tree
--- Barbecue
-vim.api.nvim_set_hl(0, "barbecue_normal", { bg = "NONE" })
--- Barbecue
 return M

@@ -6,7 +6,7 @@ man-db -> manual pages
 man-pages -> > manual pages
 htop -> system info
 nvtop -> gpu info
-nodejs-lts-iron -> web dev
+nodejs -> web dev
 npm -> web dev
 neovim -> development
 python-pip -> needed for nvim

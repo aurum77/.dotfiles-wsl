@@ -1,5 +1,6 @@
 return {
 	"tanvirtin/vgit.nvim",
+  enabled = false,
 	init = function()
 		local opts = require("plugins.lsp.opts").opts
 		vim.keymap.set("n", "<Leader>td", "<Cmd>VGit buffer_diff_preview<CR>", opts)

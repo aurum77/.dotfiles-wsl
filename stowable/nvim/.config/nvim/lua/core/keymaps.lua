@@ -19,6 +19,9 @@ vim.keymap.set("n", "<Leader>qa", "<Cmd>qa!<CR>", opts)
 -- Clear highlights
 vim.keymap.set("n", "<Leader>hh", "<Cmd>nohlsearch<CR>", opts)
 
+-- Save all
+vim.keymap.set("n", "<Leader>fw", "<Cmd>wa!<CR>", opts)
+
 -- Center cursor on scroll up or down
 vim.keymap.set("n", "<C-d>", "<C-d>zz", opts)
 vim.keymap.set("n", "<C-u>", "<C-u>zz", opts)

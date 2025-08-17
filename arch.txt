@@ -26,7 +26,6 @@ docker-compose -> containers
 docker-buildx -> container builds for rider
 p7zip -> extract 7zip
 unrar -> extract rar
-gtk-engine-murrine -> theme
 which -> find path of a program
 zip -> zip stuff
 go -> golang

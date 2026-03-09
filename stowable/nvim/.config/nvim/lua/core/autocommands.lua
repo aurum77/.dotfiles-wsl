@@ -1,7 +1,7 @@
 local nvim_tree_api = require("nvim-tree.api")
 
 -- Highlight on yank
-vim.api.nvim_create_autocmd({ "TextYankPost" }, {
+vim.api.nvim_create_autocmd("TextYankPost", {
 	callback = function()
 		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 100 })
 	end,
@@ -9,10 +9,7 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 
 -- Don't draw cursorline if not focused
 local cursor_highlight_group = vim.api.nvim_create_augroup("CursorHighlight", { clear = true })
-vim.api.nvim_create_autocmd({
-	"BufEnter",
-	"WinEnter", --[["User TelescopeFindPre"]]
-}, {
+vim.api.nvim_create_autocmd({ "BufEnter", "WinEnter" }, {
 	callback = function()
 		vim.opt.cursorline = true
 	end,
@@ -74,7 +71,7 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
 })
 
 local open_nvim_tree_group = vim.api.nvim_create_augroup("OpenNvimTreeGroup", { clear = true })
-vim.api.nvim_create_autocmd({ "VimEnter" }, {
+vim.api.nvim_create_autocmd("VimEnter", {
 	callback = function(data)
 		-- buffer is a [No Name]
 		local no_name = data.file == "" and vim.bo[data.buf].buftype == ""
@@ -95,4 +92,37 @@ vim.api.nvim_create_autocmd({ "VimEnter" }, {
 		nvim_tree_api.tree.open()
 	end,
 	group = open_nvim_tree_group,
+})
+
+local tmux_neovim_enter_group = vim.api.nvim_create_augroup("TmuxNeovimEnterGroup", { clear = true })
+vim.api.nvim_create_autocmd("VimEnter", {
+ callback = function()
+  vim.schedule(function()
+   local cwd = vim.fn.getcwd()
+   os.execute(string.format(
+    [[
+          tmux \
+          split-window -v -p 15 -c "%s" \; \
+          select-pane -t {bottom} \; \
+          split-window -h -c "%s" \; \
+          select-pane -t {bottom-left} \; \
+          select-pane -t {top} \; \
+        ]],
+    cwd,
+    cwd
+   ))
+  end)
+ end,
+ group = tmux_neovim_enter_group,
+})
+
+local tmux_neovim_leave_group = vim.api.nvim_create_augroup("TmuxNeovimLeaveGroup", { clear = true })
+vim.api.nvim_create_autocmd("VimLeavePre", {
+ callback = function()
+  local pane = os.getenv("TMUX_PANE")
+  if pane then
+   os.execute("tmux kill-pane -a -t " .. pane)
+  end
+ end,
+ group = tmux_neovim_leave_group,
 })

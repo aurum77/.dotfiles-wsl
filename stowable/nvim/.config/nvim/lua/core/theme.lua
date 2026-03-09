@@ -1,5 +1,3 @@
-local M = {}
-
 local gruvbox = require("gruvbox").palette
 
 require("gruvbox").setup({
@@ -52,6 +50,11 @@ vim.api.nvim_set_hl(0, "TroubleSignInformation", { bg = "NONE", fg = gruvbox.bri
 vim.api.nvim_set_hl(0, "TroubleSignOther", { bg = "NONE", fg = gruvbox.bright_blue })
 -- Trouble
 -- nvim.tree
-vim.api.nvim_set_hl(0, "NvimTreeWindowPicker", { bg = gruvbox.neutral_blue, fg = gruvbox.dark0 })
+vim.api.nvim_set_hl(0, "NvimTreeWindowPicker", { bg = gruvbox.bright_blue, fg = gruvbox.dark0 })
 -- nvim.tree
-return M
+-- nvim-cmp
+vim.api.nvim_set_hl(0, "PmenuSel", { bg = gruvbox.bright_blue, fg = gruvbox.dark0 })
+-- nvim-cmp
+-- mode indicator
+vim.api.nvim_set_hl(0, "ModeMsg", { fg = gruvbox.bright_blue, bold = true })
+-- mode indicator

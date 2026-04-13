@@ -37,3 +37,4 @@ wsl2-ssh-agent -> ssh but from windows
 wsl-open -> open stuff in wsl on windows
 tmux -> terminal multiplexer
 gdu -> disk usage analysis
+tree-sitter-cli -> add this to main dotfiles later

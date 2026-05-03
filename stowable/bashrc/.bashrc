@@ -35,9 +35,6 @@ shopt -s autocd
 # Source fzf config
 source /usr/share/fzf/key-bindings.bash
 
-# Use ssh service from Windows
-eval $(wsl2-ssh-agent)
-
 # tmux session numbering start from 1
 new-tmux() {
   local next=$(tmux list-sessions 2>/dev/null | awk -F: '{print $1}' | sort -n | tail -1)

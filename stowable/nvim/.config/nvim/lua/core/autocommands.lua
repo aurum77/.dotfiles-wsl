@@ -102,7 +102,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
    os.execute(string.format(
     [[
           tmux \
-          split-window -v -p 15 -c "%s" \; \
+          split-window -v -p 10 -c "%s" \; \
           select-pane -t {bottom} \; \
           split-window -h -c "%s" \; \
           select-pane -t {bottom-left} \; \

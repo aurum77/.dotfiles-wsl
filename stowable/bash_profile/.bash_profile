@@ -10,6 +10,8 @@ export PATH="$PATH:$HOME/.symlinks/"
 export PATH="$PATH:$HOME/.go/bin/"
 # Global NPM packages
 export PATH="$PATH:$HOME/.npm_pkg/bin"
+# Add dotnet binaries to path
+export PATH="$PATH:$HOME/.dotnet/tools/"
 
 # Only show the last 3 directories on the path prompt
 export PROMPT_DIRTRIM=3

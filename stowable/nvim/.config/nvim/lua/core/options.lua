@@ -50,5 +50,5 @@ vim.g.clipboard = {
 
 ---@diagnostic disable-next-line: duplicate-set-field, unused-local
 vim.ui.open = function(path, opts)
-	vim.system({"wsl-open", path})
+	vim.system({ "wsl-open", path })
 end

@@ -6,7 +6,6 @@ return {
 			ensure_installed = {
 				"html",
 				"css",
-				"c_sharp",
 				"go",
 				"javascript",
 				"typescript",

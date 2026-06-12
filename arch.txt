@@ -37,6 +37,3 @@ wsl-open -> open stuff in wsl on windows
 tmux -> terminal multiplexer
 gdu -> disk usage analysis
 tree-sitter-cli -> add this to main dotfiles later
-dotnet-sdk -> job
-aspnet-targeting-pack -> job
-aspnet-runtime -> job

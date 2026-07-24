@@ -93,3 +93,10 @@ vim.api.nvim_create_autocmd("VimEnter", {
 	end,
 	group = open_nvim_tree_group,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "<filetype>" },
+	callback = function()
+		vim.treesitter.start()
+	end,
+})

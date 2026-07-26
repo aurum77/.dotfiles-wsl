@@ -58,3 +58,10 @@ vim.api.nvim_set_hl(0, "PmenuSel", { bg = gruvbox.bright_blue, fg = gruvbox.dark
 -- mode indicator
 vim.api.nvim_set_hl(0, "ModeMsg", { fg = gruvbox.bright_blue, bold = true })
 -- mode indicator
+-- debug
+vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticError" })
+vim.fn.sign_define("DapBreakpointCondition", { text = "", texthl = "DiagnosticWarning" })
+vim.fn.sign_define("DapStopped", { text = "", texthl = "DiagnosticOk" })
+vim.fn.sign_define("DapLogPoint", { text = "󱂅", texthl = "DiagnosticInfo" })
+vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "DiagnosticError" })
+-- debug
